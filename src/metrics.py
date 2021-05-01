@@ -1,13 +1,36 @@
+"""
+@author: lowinli
+指代消解评测代码
+"""
 import itertools
 import numpy as np
 from scipy.optimize import linear_sum_assignment
 
 
 def get_f1(precision, recall):
+    """
+    模型训练算法个人部分
+    Parameters
+    ------
+        precision       float       准确率
+        recall          float       召回率
+    Return
+    ------
+        float       调和平均数
+    """
     return precision * recall * 2 / (precision + recall)
 
 
 def muc(predicted_clusters, gold_clusters):
+    """
+    Parameters
+    ------
+        predicted_clusters      list(list)       预测实体簇
+        gold_clusters           list(list)       标注实体簇
+    Return
+    ------
+        tuple(float)    准确率、召回率、调和平均数
+    """
     pred_edges = set()
     for cluster in predicted_clusters:
         pred_edges |= set(itertools.combinations(cluster, 2))
@@ -22,6 +45,16 @@ def muc(predicted_clusters, gold_clusters):
 
 
 def b_cubed(predicted_clusters, gold_clusters):
+    """
+    模型训练算法个人部分
+    Parameters
+    ------
+        predicted_clusters      list(list)       预测实体簇
+        gold_clusters           list(list)       标注实体簇
+    Return
+    ------
+        tuple(float)    准确率、召回率、调和平均数
+    """
     mentions = set(sum(predicted_clusters, [])) & set(sum(gold_clusters, []))
     precisions = []
     recalls = []
@@ -38,11 +71,19 @@ def b_cubed(predicted_clusters, gold_clusters):
 
 
 def ceaf(predicted_clusters, gold_clusters):
-    predicted_clusters = predicted_clusters
-    gold_clusters = gold_clusters
+    """
+    模型训练算法个人部分
+    Parameters
+    ------
+        predicted_clusters      list(list)       预测实体簇
+        gold_clusters           list(list)       标注实体簇
+    Return
+    ------
+        tuple(float)    准确率、召回率、调和平均数
+    """
     scores = np.zeros((len(predicted_clusters), len(gold_clusters)))
-    for i in range(len(gold_clusters)):
-        for j in range(len(predicted_clusters)):
+    for j in range(len(gold_clusters)):
+        for i in range(len(predicted_clusters)):
             scores[i, j] = len(set(predicted_clusters[i]) & set(gold_clusters[j]))
     indexs = linear_sum_assignment(scores, maximize=True)
     max_correct_mentions = sum(
