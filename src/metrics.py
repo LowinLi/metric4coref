@@ -23,6 +23,8 @@ def get_f1(precision, recall):
 
 def muc(predicted_clusters, gold_clusters):
     """
+    the link based MUC
+
     Parameters
     ------
         predicted_clusters      list(list)       预测实体簇
@@ -46,6 +48,8 @@ def muc(predicted_clusters, gold_clusters):
 
 def b_cubed(predicted_clusters, gold_clusters):
     """
+    B cubed metric
+
     模型训练算法个人部分
     Parameters
     ------
@@ -72,7 +76,8 @@ def b_cubed(predicted_clusters, gold_clusters):
 
 def ceaf(predicted_clusters, gold_clusters):
     """
-    模型训练算法个人部分
+    the entity based CEAF metric
+
     Parameters
     ------
         predicted_clusters      list(list)       预测实体簇
@@ -93,3 +98,20 @@ def ceaf(predicted_clusters, gold_clusters):
     recall = max_correct_mentions / len(sum(gold_clusters, []))
     f1 = get_f1(precision, recall)
     return precision, recall, f1
+
+
+def conll_coref_f1(predicted_clusters, gold_clusters):
+    """
+    模型训练算法个人部分
+    Parameters
+    ------
+        predicted_clusters      list(list)       预测实体簇
+        gold_clusters           list(list)       标注实体簇
+    Return
+    ------
+        f1    调和平均数
+    """
+    _, _, f1_m = muc(predicted_clusters, gold_clusters)
+    _, _, f1_b = b_cubed(predicted_clusters, gold_clusters)
+    _, _, f1_c = ceaf(predicted_clusters, gold_clusters)
+    return (f1_m + f1_b + f1_c) / 3
