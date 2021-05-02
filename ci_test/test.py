@@ -8,7 +8,7 @@ predict_clusters 表示系统预测簇
 gold_clusters 表示标注簇
 """
 import unittest
-from src import get_f1, muc, ceaf, b_cubed, conll_coref_f1
+from metric4coref import get_f1, muc, ceaf, b_cubed, conll_coref_f1
 
 predict_clusters = [["a", "b", "c"], ["d", "e", "f", "g"], ["h", "i", "j"], ["k"]]
 gold_clusters = [["a", "b", "d"], ["c", "e", "f", "g"], ["h", "i", "j", "k"]]
@@ -143,4 +143,4 @@ class Tests(unittest.TestCase):
 
     def test_conll_coref_f1(self):
         f1 = conll_coref_f1(predict_clusters, gold_clusters)
-        print(f1)
+        self.assertAlmostEqual(f1, 0.6377130)

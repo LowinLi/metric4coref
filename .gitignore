@@ -2,3 +2,7 @@ __pycache__
 .vscode
 *.pyc
 .pytest_cache
+build
+dist
+*.egg-info
+pipeline.sh
