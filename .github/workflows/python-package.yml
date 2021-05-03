@@ -37,3 +37,4 @@ jobs:
     - name: Test with unittest
       run: |
         coverage run --source metric4coref -m unittest ci_test/test.py
+        coverage report
