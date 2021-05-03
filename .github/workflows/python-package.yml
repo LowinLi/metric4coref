@@ -37,4 +37,7 @@ jobs:
     - name: Test with unittest
       run: |
         coverage run --source metric4coref -m unittest ci_test/test.py
-        coverage report
+        total=`coverage report|grep TOTAL|awk {'print $ 4'}`
+        curl "https://img.shields.io/badge/coverage-$total-green" > badge.svg
+        gsutil  -h "Cache-Control: no-cache" cp badge.svg gs://LowinLi/metric4coref/codcov.svg
+        gsutil acl ch -u AllUsers:R gs://LowinLi/metric4coref/codcov.svg
