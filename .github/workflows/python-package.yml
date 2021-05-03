@@ -37,3 +37,6 @@ jobs:
     - name: Test with unittest
       run: |
         coverage run --source metric4coref -m unittest ci_test/test.py
+        codecov
+        total=`coverage report|grep TOTAL|awk {'print $ 4'}`
+        curl "https://img.shields.io/badge/coverage-$total-green" > coverage.svg
