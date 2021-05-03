@@ -30,7 +30,7 @@ print(b_cubed(predict_clusters, gold_clusters))
 print(ceaf(predict_clusters, gold_clusters))
 # -> 准确率、召回率、f1：(0.7272727272727273, 0.7272727272727273, 0.7272727272727273)
 print(conll_coref_f1(predict_clusters, gold_clusters))
-# -> 以上三个分平均值： 10.6377129598103382
+# -> 以上三个f1平均值： 0.6377129598103382
 ```
 
 ### 共指消解的评测方法
