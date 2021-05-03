@@ -6,6 +6,3 @@
 ![](https://img.shields.io/badge/style-black-black)
 ![](https://img.shields.io/badge/license-MIT-orange)
 [![Downloads](https://pepy.tech/badge/metric4coref)](https://pepy.tech/project/metric4coref)
-[![](https://img.shields.io/github/forks/LowinLi/metric4coref)](https://github.com/LowinLi/metric4coref)
-[![](https://img.shields.io/github/stars/LowinLi/metric4coref)](https://github.com/LowinLi/metric4coref)
-[![](https://img.shields.io/github/issues/LowinLi/metric4coref)](https://github.com/LowinLi/metric4coref)
