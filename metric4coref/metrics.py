@@ -9,7 +9,6 @@ from scipy.optimize import linear_sum_assignment
 
 def get_f1(precision, recall):
     """
-    模型训练算法个人部分
     Parameters
     ------
         precision       float       准确率
@@ -50,7 +49,6 @@ def b_cubed(predicted_clusters, gold_clusters):
     """
     B cubed metric
 
-    模型训练算法个人部分
     Parameters
     ------
         predicted_clusters      list(list)       预测实体簇
@@ -102,7 +100,7 @@ def ceaf(predicted_clusters, gold_clusters):
 
 def conll_coref_f1(predicted_clusters, gold_clusters):
     """
-    模型训练算法个人部分
+    
     Parameters
     ------
         predicted_clusters      list(list)       预测实体簇
