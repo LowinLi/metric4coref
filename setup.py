@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="metric4coref",
-    version="0.0.1",
+    version="0.0.2",
     author="LowinLi",
     author_email="idealway9@gmail.com",
     description="metric for coreference resolution",
