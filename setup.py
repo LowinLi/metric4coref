@@ -7,7 +7,7 @@ setuptools.setup(
     name="metric4coref",
     version="0.0.2",
     author="LowinLi",
-    author_email="idealway9@gmail.com",
+    author_email="lowinli@outlook.com",
     description="metric for coreference resolution",
     long_description=long_description,
     long_description_content_type="text/markdown",
