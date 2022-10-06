@@ -17,6 +17,8 @@ def get_f1(precision, recall):
     ------
         float       调和平均数
     """
+    if precision == 0 and recall == 0:
+        return 0
     return precision * recall * 2 / (precision + recall)
 
 
