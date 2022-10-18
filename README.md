@@ -58,11 +58,11 @@ print(conll_coref_f1(predict_clusters, gold_clusters))
 - the link based MUC
     - 解释：基于簇中两两mention连接的边作为评测依据
         - precision：
-            分子：所有系统预测边与所有标注边的交集的个数
-            分母：所有预测边的个数
+            - 分子：所有系统预测边与所有标注边的交集的个数
+            - 分母：所有预测边的个数
         - recall：
-            分子：所有系统预测边与所有标注边的交集的个数
-            分母：所有标注边的个数
+            - 分子：所有系统预测边与所有标注边的交集的个数
+            - 分母：所有标注边的个数
         - f1:
             precision * recall * 2 / (precision + recall)
     - 例子：
@@ -82,47 +82,47 @@ print(conll_coref_f1(predict_clusters, gold_clusters))
     - 解释：以mention为单位，每个mention计算一个precision和recall，在加权平均所有mention的precision和recall
         - 每个mention的计算方法：
             - precision：
-                分子：系统预测的包含mention的簇与人工标注的包含mention的簇的mention交集个数
-                分母：系统生成的包含mention的簇的个数
+                - 分子：系统预测的包含mention的簇与人工标注的包含mention的簇的mention交集个数
+                - 分母：系统生成的包含mention的簇的个数
             - recall：
-                分子：系统预测的包含mention的簇与人工标注的包含mention的簇的mention交集个数
-                分母：人工标注的包含mention的簇的个数
+                - 分子：系统预测的包含mention的簇与人工标注的包含mention的簇的mention交集个数
+                - 分母：人工标注的包含mention的簇的个数
             - f1:
                 precision * recall * 2 / (precision + recall)
     - 例子：
         - mention a:
-            所在预测簇: ["a", "b", "c"]
-            所在标注簇: ["a", "b", "d"]
-            precision:
-                分子: a、b共2个
-                分母: a、b、c共3个
-                =2/3=0.666
-            recall:
-                分子: a、b共2个
-                分母: a、b、d共3个
-                =2/3=0.666
+            - 所在预测簇: ["a", "b", "c"]
+            - 所在标注簇: ["a", "b", "d"]
+            - precision:
+                - 分子: a、b共2个
+                - 分母: a、b、c共3个
+                - =2/3=0.666
+            - recall:
+                - 分子: a、b共2个
+                - 分母: a、b、d共3个
+                - =2/3=0.666
         - mention b:
-            所在预测簇: ["a", "b", "c"]
-            所在标注簇: ["a", "b", "d"]
-            precision:
-                分子: a、b共2个
-                分母: a、b、c共3个
-                =2/3=0.666
-            recall:
-                分子: a、b共2个
-                分母: a、b、d共3个
-                =2/3=0.666
+            - 所在预测簇: ["a", "b", "c"]
+            - 所在标注簇: ["a", "b", "d"]
+            - precision:
+                - 分子: a、b共2个
+                - 分母: a、b、c共3个
+                - =2/3=0.666
+            - recall:
+                - 分子: a、b共2个
+                - 分母: a、b、d共3个
+                - =2/3=0.666
         - mention c
-            所在预测簇: ["a", "b", "c"]
-            所在标注簇: ["c", "e", "f", "g"]
-            precision:
-                分子: c共1个
-                分母: a、b、c共3个
-                =1/3=0.333
-            recall:
-                分子: c共1个
-                分母: c、e、f、g共4个
-                =1/4=0.25
+            - 所在预测簇: ["a", "b", "c"]
+            - 所在标注簇: ["c", "e", "f", "g"]
+            - precision:
+                - 分子: c共1个
+                - 分母: a、b、c共3个
+                - =1/3=0.333
+            - recall:
+                - 分子: c共1个
+                - 分母: c、e、f、g共4个
+                - =1/4=0.25
         ...
         - 对所有mention的precision、recall求平均值
     - 特点：
